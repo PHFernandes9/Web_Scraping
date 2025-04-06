@@ -48,7 +48,7 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 
 &nbsp;
-
+#### Banco de dados
 - Cria um banco de dados ou então conecta se ele já existir.
 
             def cria_banco(db='PS4.db'):
