@@ -17,7 +17,7 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 &nbsp;
 
-Função que irá buscar as informações da página em HTML
+📌 Função que irá buscar as informações da página em HTML
 
     def buscalink():
         url = "https://lista.mercadolivre.com.br/play5#D[A:play5,L:undefined,MLB1743]"
@@ -26,7 +26,7 @@ Função que irá buscar as informações da página em HTML
 
 &nbsp;
 
-Essa função servirá para pegar alguns dados esepcíficos do html, como nome e preço. Além de acionar a data com a função datetime.
+📌 Essa função servirá para pegar alguns dados esepcíficos do html, como nome e preço. Além de acionar a data com a função datetime.
 
 
     def parse_page(html):
