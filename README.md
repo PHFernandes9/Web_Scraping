@@ -17,7 +17,7 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 #### Aquisição dos dados do HTML
 
-📌 -Função que irá buscar as informações da página em HTML
+📌 - Função que irá buscar as informações da página em HTML
 
     def buscalink():
         url = "https://lista.mercadolivre.com.br/play5#D[A:play5,L:undefined,MLB1743]"
@@ -26,7 +26,7 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 &nbsp;
 
-📌 -Essa função servirá para pegar alguns dados esepcíficos do html, como nome e preço. Além de acionar a data com a função datetime.
+📌 - Essa função servirá para pegar alguns dados esepcíficos do html, como nome e preço. Além de acionar a data com a função datetime.
 
 
     def parse_page(html):
@@ -49,13 +49,13 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 &nbsp;
 
-📌 -Cria um banco de dados ou então conecta se ele já existir.
+📌 - Cria um banco de dados ou então conecta se ele já existir.
 
         def cria_banco(db='PS4.db'):
             conn = sqlite3.connect(db)
             return conn
 
-📌  Cria a tabela dentro do banco de dados SQlite. 
+📌  - Cria a tabela dentro do banco de dados SQlite. 
         
         def cria_tabela(conn):
             cursor = conn.cursor()
