@@ -45,3 +45,27 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
         
         return lista 
         # Criando lista de nomes
+
+
+&nbsp;
+
+📌 Cria um banco de dados ou então conecta se ele já existir.
+
+        def cria_banco(db='PS4.db'):
+            conn = sqlite3.connect(db)
+            return conn
+
+📌  Cria a tabela dentro do banco de dados SQlite. 
+        
+        def cria_tabela(conn):
+            cursor = conn.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS tes (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nome TEXT,
+                    Valor REAL,
+                    timestamp TEXT
+                )
+            ''')
+            conn.commit()
+
