@@ -17,6 +17,8 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 &nbsp;
 
+#### Aquisição dos dados do HTML
+
 📌 Função que irá buscar as informações da página em HTML
 
     def buscalink():
