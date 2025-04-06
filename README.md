@@ -19,30 +19,30 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 - Função que irá buscar as informações da página em HTML
 
-    def buscalink():
-        url = "https://lista.mercadolivre.com.br/play5#D[A:play5,L:undefined,MLB1743]"
-        response = requests.get(url)
-        return response.text
+        def buscalink():
+            url = "https://lista.mercadolivre.com.br/play5#D[A:play5,L:undefined,MLB1743]"
+            response = requests.get(url)
+            return response.text
 
 &nbsp;
 
 - Essa função servirá para pegar alguns dados esepcíficos do html, como nome e preço. Além de acionar a data com a função datetime.
 
-
-    def parse_page(html):
-        soup = BeautifulSoup(html, 'html.parser')
     
-        # Encontrando todos os nomes dos produtos
-        produtos = soup.find_all('div', class_='ui-search-result__wrapper')
-        lista = []
-        # Criando lista de nomes
-        for produto in produtos:
-    
-            nome = produto.find('h3',class_='poly-component__title-wrapper')
-            price = produto.find('span',class_='andes-money-amount andes-money-amount--cents-superscript')
-            price=price.text.strip()
-            lista.append({'Nome' : nome.text.strip(),'Valor':int(price.replace('R$','').replace('.','')) ,'Timestamp' : datetime.now().strftime("%Y-%m-%d %H:%M")})
+        def parse_page(html):
+            soup = BeautifulSoup(html, 'html.parser')
         
+            # Encontrando todos os nomes dos produtos
+            produtos = soup.find_all('div', class_='ui-search-result__wrapper')
+            lista = []
+            # Criando lista de nomes
+            for produto in produtos:
+        
+                nome = produto.find('h3',class_='poly-component__title-wrapper')
+                price = produto.find('span',class_='andes-money-amount andes-money-amount--cents-superscript')
+                price=price.text.strip()
+                lista.append({'Nome' : nome.text.strip(),'Valor':int(price.replace('R$','').replace('.','')) ,'Timestamp' : datetime.now().strftime("%Y-%m-%d %H:%M")})
+            
         return lista 
         # Criando lista de nomes
 
@@ -51,21 +51,21 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 
 - Cria um banco de dados ou então conecta se ele já existir.
 
-        def cria_banco(db='PS4.db'):
-            conn = sqlite3.connect(db)
-            return conn
+            def cria_banco(db='PS4.db'):
+                conn = sqlite3.connect(db)
+                return conn
 
 - Cria a tabela dentro do banco de dados SQlite. 
         
-        def cria_tabela(conn):
-            cursor = conn.cursor()
-            cursor.execute('''
-                CREATE TABLE IF NOT EXISTS tes (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Nome TEXT,
-                    Valor REAL,
-                    timestamp TEXT
-                )
-            ''')
-            conn.commit()
+            def cria_tabela(conn):
+                cursor = conn.cursor()
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS tes (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Nome TEXT,
+                        Valor REAL,
+                        timestamp TEXT
+                    )
+                ''')
+                conn.commit()
 
