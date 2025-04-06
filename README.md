@@ -13,8 +13,6 @@ Esse projeto tem como objetivo fazer uma  consulta do preço do Playstation 5, n
 - `datetime`: Manipulação de datas.
 
 
-### Metodologia
-
 #### Aquisição dos dados do HTML
 
 - Função que irá buscar as informações da página em HTML
